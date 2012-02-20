@@ -1,6 +1,11 @@
 Products.PloneSurvey - A survey tool for Plone
 ============================================================
 
+.. warning::
+
+	This isn't the original Products.PloneSurvey
+
+
 This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching
 
 Using PloneSurvey
