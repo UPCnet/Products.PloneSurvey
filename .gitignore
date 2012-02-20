@@ -1,0 +1,15 @@
+*.egg
+*.egg-info
+*.pyc
+*$py.class
+*.pt.py
+*.txt.py
+*.db
+*.fs
+*.fs.*
+*.log
+*.project
+*.settings
+*.pydevproject
+passwd
+data
