@@ -10,7 +10,7 @@ from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 
 SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
-    
+
     TextField('body',
         searchable = 1,
         required=0,
@@ -148,50 +148,51 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    TextField('emailInvite',
-        searchable = 1,
-        required = 0,
-        schemata = "Email Invite",
-        default_method = "_get_emailInvite_default",
-        default_content_type    = 'text/html',
-        default_output_type     = 'text/html',
-        allowable_content_types=('text/plain',
-                                 'text/structured',
-                                 'text/html',
-                                ),
-        widget = RichWidget(
-            label = _('label_email_invite', default=u"Email Invite"),
-            description = _('help_email_invite',
-                            default=u"An email invite will be sent to loaded respondents, "
-                                    u"use '**Name**' for the respondents name, "
-                                    u"and '**Survey**' for the title of the survey as a link "
-                                    u"to the survey.",
-                                    )
-            ),
-    ),
+    # @gw4 treure email invite, per que hem esborrat el acl_users
+    # TextField('emailInvite',
+    #     searchable = 1,
+    #     required = 0,
+    #     schemata = "Email Invite",
+    #     default_method = "_get_emailInvite_default",
+    #     default_content_type    = 'text/html',
+    #     default_output_type     = 'text/html',
+    #     allowable_content_types=('text/plain',
+    #                              'text/structured',
+    #                              'text/html',
+    #                             ),
+    #     widget = RichWidget(
+    #         label = _('label_email_invite', default=u"Email Invite"),
+    #         description = _('help_email_invite',
+    #                         default=u"An email invite will be sent to loaded respondents, "
+    #                                 u"use '**Name**' for the respondents name, "
+    #                                 u"and '**Survey**' for the title of the survey as a link "
+    #                                 u"to the survey.",
+    #                                 )
+    #         ),
+    # ),
 
-    StringField('inviteFromName',
-        schemata = "Email Invite",
-        required=0,
-        searchable=0,
-        widget=StringWidget(
-            label=_("label_invite_from_name", default=u"Person Invite From"),
-            description=_("help_invite_from_name",
-                          default=u"Enter person's name that the survey invite email is from."),
-          ),
-        ),
+    # StringField('inviteFromName',
+    #     schemata = "Email Invite",
+    #     required=0,
+    #     searchable=0,
+    #     widget=StringWidget(
+    #         label=_("label_invite_from_name", default=u"Person Invite From"),
+    #         description=_("help_invite_from_name",
+    #                       default=u"Enter person's name that the survey invite email is from."),
+    #       ),
+    #     ),
 
-    StringField('inviteFromEmail',
-        schemata = "Email Invite",
-        required=0,
-        searchable=0,
-        widget=StringWidget(
-            label=_("label_invite_from_email", default=u"Email Invite From"),
-            description=_("help_invite_from_email",
-                          default=u"Enter person's email address that the survey invite "
-                                  u"email is from."),
-          ),
-        ),
+    # StringField('inviteFromEmail',
+    #     schemata = "Email Invite",
+    #     required=0,
+    #     searchable=0,
+    #     widget=StringWidget(
+    #         label=_("label_invite_from_email", default=u"Email Invite From"),
+    #         description=_("help_invite_from_email",
+    #                       default=u"Enter person's email address that the survey invite "
+    #                               u"email is from."),
+    #       ),
+    #     ),
 
 ))
 
@@ -682,7 +683,7 @@ SurveyTwoDimensionalQuestionSchema = BaseQuestionSchema.copy() + Schema((
 ##            i18n_domain="plonesurvey",
 ##           ),
 ##        ),
-   
+
 ))
 
 finalizeATCTSchema(SurveyTwoDimensionalQuestionSchema, moveDiscussion=False)

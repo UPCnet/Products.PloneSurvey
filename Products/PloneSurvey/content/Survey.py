@@ -300,20 +300,21 @@ class Survey(ATCTOrderedFolder):
         completed.append(userid)
         self.setCompletedFor(completed)
 
+        # @gw4 disabled password scramble
         # Scramble respondent's password because we don't want him back
-        acl_users = self.get_acl_users()
-        user = acl_users.getUserById(userid)
-        if user is not None:
-            portal_registration = getToolByName(self, 'portal_registration')
-            pw = portal_registration.generatePassword()
+        # acl_users = self.get_acl_users()
+        # user = acl_users.getUserById(userid)
+        # if user is not None:
+        #     portal_registration = getToolByName(self, 'portal_registration')
+        #     pw = portal_registration.generatePassword()
 
-            self.acl_users.userFolderEditUser(userid, pw, user.getRoles(), user.getDomains(), key=pw)
+        #     self.acl_users.userFolderEditUser(userid, pw, user.getRoles(), user.getDomains(), key=pw)
 
-            # Set key
-            props = acl_users.mutable_properties.getPropertiesForUser(user)
-            props = BasicPropertySheet(props)
-            props.setProperty('key', pw)
-            acl_users.mutable_properties.setPropertiesForUser(user, props)
+        #     # Set key
+        #     props = acl_users.mutable_properties.getPropertiesForUser(user)
+        #     props = BasicPropertySheet(props)
+        #     props.setProperty('key', pw)
+        #     acl_users.mutable_properties.setPropertiesForUser(user, props)
 
         if self.getSurveyNotificationMethod() == 'each_submission':
             self.send_email(userid)
@@ -554,49 +555,50 @@ class Survey(ATCTOrderedFolder):
     def deleteAuthenticatedRespondent(self, email, REQUEST=None):
         """Delete authenticated respondent"""
         # xxx: delete answers by this user as well?
-        acl_users = self.get_acl_users()
-        user = acl_users.getUserById(email)
-        props = acl_users.mutable_properties.getPropertiesForUser(user)
-        props = BasicPropertySheet(props)
-        for prop in props.propertyItems():
-            props.setProperty(prop[0], '')
-        acl_users.mutable_properties.setPropertiesForUser(user, props)
-        acl_users.userFolderDelUsers([email])
-        if REQUEST is not None:
-            pu = getToolByName(self, 'plone_utils')
-            pu.addPortalMessage(
-                safe_unicode("Respondent %s deleted" % email))
-            REQUEST.RESPONSE.redirect(REQUEST.HTTP_REFERER)
+        # acl_users = self.get_acl_users()
+        # user = acl_users.getUserById(email)
+        # props = acl_users.mutable_properties.getPropertiesForUser(user)
+        # props = BasicPropertySheet(props)
+        # for prop in props.propertyItems():
+        #     props.setProperty(prop[0], '')
+        # acl_users.mutable_properties.setPropertiesForUser(user, props)
+        # acl_users.userFolderDelUsers([email])
+        # if REQUEST is not None:
+        #     pu = getToolByName(self, 'plone_utils')
+        #     pu.addPortalMessage(
+        #         safe_unicode("Respondent %s deleted" % email))
+        #     REQUEST.RESPONSE.redirect(REQUEST.HTTP_REFERER)
 
     security.declareProtected(permissions.ModifyPortalContent, 'addAuthenticatedRespondent')
     def addAuthenticatedRespondent(self, emailaddress, **kw):
-        acl_users = self.get_acl_users()
-        portal_registration = getToolByName(self, 'portal_registration')
-        if not emailaddress:
-            return False
-        # Create user
-        password = portal_registration.generatePassword()
-        acl_users.userFolderAddUser(emailaddress, password, roles=['Member'], domains=[],
-            groups=())
-        # Set user properties
-        user = acl_users.getUserById(emailaddress)
-        props = acl_users.mutable_properties.getPropertiesForUser(user)
-        props = BasicPropertySheet(props)
-        for k,v in kw.items():
-            props.setProperty(k, v)
-        props.setProperty('key', password)
-        acl_users.mutable_properties.setPropertiesForUser(user, props)
+        "@gw4 disabled"
+        # acl_users = self.get_acl_users()
+        # portal_registration = getToolByName(self, 'portal_registration')
+        # if not emailaddress:
+        #     return False
+        # # Create user
+        # password = portal_registration.generatePassword()
+        # acl_users.userFolderAddUser(emailaddress, password, roles=['Member'], domains=[],
+        #     groups=())
+        # # Set user properties
+        # user = acl_users.getUserById(emailaddress)
+        # props = acl_users.mutable_properties.getPropertiesForUser(user)
+        # props = BasicPropertySheet(props)
+        # for k,v in kw.items():
+        #     props.setProperty(k, v)
+        # props.setProperty('key', password)
+        # acl_users.mutable_properties.setPropertiesForUser(user, props)
         return True
 
     security.declareProtected(permissions.ModifyPortalContent, 'registerRespondentSent')
     def registerRespondentSent(self, email_address):
         """Mark the respondent as being sent an email"""
-        acl_users = self.get_acl_users()
-        user = acl_users.getUserById(email_address)
-        props = acl_users.mutable_properties.getPropertiesForUser(user)
-        props = BasicPropertySheet(props)
-        props.setProperty('email_sent', str(DateTime()))
-        acl_users.mutable_properties.setPropertiesForUser(user, props)
+        # acl_users = self.get_acl_users()
+        # user = acl_users.getUserById(email_address)
+        # props = acl_users.mutable_properties.getPropertiesForUser(user)
+        # props = BasicPropertySheet(props)
+        # props.setProperty('email_sent', str(DateTime()))
+        # acl_users.mutable_properties.setPropertiesForUser(user, props)
 
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondent')
     def getAuthenticatedRespondent(self, emailaddress):
@@ -604,29 +606,29 @@ class Survey(ATCTOrderedFolder):
         Return dictionary with respondent details. This method is needed because
         getProperty is hosed on the user object.
         """
-        di = {'emailaddress':emailaddress, 'id':emailaddress}
-        acl_users = self.get_acl_users()
-        user = acl_users.getUserById(emailaddress)
-        props = user.getPropertysheet('mutable_properties')
-        for k,v in props.propertyItems():
-            di[k] = v
-        return di
+        # di = {'emailaddress':emailaddress, 'id':emailaddress}
+        # acl_users = self.get_acl_users()
+        # user = acl_users.getUserById(emailaddress)
+        # props = user.getPropertysheet('mutable_properties')
+        # for k,v in props.propertyItems():
+        #     di[k] = v
+        # return di
 
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondents')
     def getAuthenticatedRespondents(self):
         """Build up the list of users"""
-        respondents = []
-        users = self.get_acl_users().getUsers()
-        for user in users:
-            respondents.append(user.getId())
-        return [self.getAuthenticatedRespondent(user_id) for user_id in respondents]
+        # respondents = []
+        # users = self.get_acl_users().getUsers()
+        # for user in users:
+        #     respondents.append(user.getId())
+        # return [self.getAuthenticatedRespondent(user_id) for user_id in respondents]
 
     security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInvite')
     def sendSurveyInvite(self, email_address):
         """Send a survey Invite"""
         portal_properties = getToolByName(self, 'portal_properties')
-        acl_users = self.get_acl_users()
-        user = acl_users.getUserById(email_address)
+        #acl_users = self.get_acl_users()
+        #user = acl_users.getUserById(email_address)
         user_details = self.getAuthenticatedRespondent(email_address)
         email_from_name = self.getInviteFromName()
         if not email_from_name:
@@ -678,9 +680,9 @@ class Survey(ATCTOrderedFolder):
 
     def get_acl_users(self):
         """Fetch acl_users. Create if it does not yet exist."""
-        if not 'acl_users' in self.objectIds():
-            self.createLocalPas()
-        return self.acl_users
+        # if not 'acl_users' in self.objectIds():
+        #     self.createLocalPas()
+        # return self.acl_users
 
     security.declareProtected(permissions.ViewSurveyResults, 'setCsvHeaders')
     def setCsvHeaders(self):
