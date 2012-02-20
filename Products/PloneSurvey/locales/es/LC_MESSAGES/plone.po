@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneSurvey 1.2.0\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2007-10-30 20:20-0600\n"
+"Last-Translator: Héctor Velarde <hvelarde@jornada.com.mx>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#. Default: Branching
+msgid "Branching"
+msgstr ""
+
+#. Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "Campo de comentario"
+
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr ""
+
+#. Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "Introducción"
+
+#. Default: None
+msgid "None"
+msgstr "Nada"
+
+#. Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "Resumen"
+
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Reiniciar"
+
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr ""
+
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Resultados"
+
+#. Default: default
+msgid "default"
+msgstr "valor por defecto"
+
+#. Default: Branching
+msgid "label_schema_Branching"
+msgstr ""
+
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr ""
+
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr ""
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr ""
+
+#. Default: Text Block
+msgid "label_schema_Text Block"
+msgstr ""
+

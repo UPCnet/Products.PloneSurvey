@@ -1,0 +1,84 @@
+# Pilar Marinas Luis <pilar.marinas@upcnet.es>, 2008
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneSurvey 1.2.0\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2011-10-07 09:12+0100\n"
+"Last-Translator: Ariel von Barnekow <ariel.von.barnekow@upcnet.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Code: ca\n"
+"Language-Name: Catalan\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#. Default: Branching
+msgid "Branching"
+msgstr "Branques"
+
+#. Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "Camp de comentari"
+
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr "Exporta"
+
+#. Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "Introducció"
+
+#. Default: None
+msgid "None"
+msgstr "Cap"
+
+#. Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "Resum"
+
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Buidar"
+
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr "Enquestats"
+
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Resultats"
+
+#. Default: default
+msgid "default"
+msgstr "valor per defecte"
+
+#. Default: Branching
+msgid "label_schema_Branching"
+msgstr "Branques"
+
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr "Camp de commentaris"
+
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr "Invitació per correu"
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr "Introducció"
+
+#. Default: Text Block
+msgid "label_schema_Text Block"
+msgstr "Bloc de text"
+
