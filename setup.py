@@ -6,7 +6,7 @@ version = open(os.path.join("Products", "PloneSurvey", "version.txt")).read().st
 setup(name='Products.PloneSurvey',
       version=version,
       description="Plone Survey is a simple product written to collect data from people - feedback on a course, simple data collection etc.",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
