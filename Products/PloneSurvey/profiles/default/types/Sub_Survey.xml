@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="Sub Survey"
+<!-- @gw4 Object name without spaces -->
+<object name="SubSurvey"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
    i18n:domain="plonesurvey">
@@ -14,11 +15,13 @@
  <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="Survey Date Question"/>
-  <element value="Survey Matrix"/>
-  <element value="Survey Select Question"/>
-  <element value="Survey Text Question"/>
-  <element value="Survey Two Dimensional"/>
+  <!-- @gw4 allowed_conent_types values without spaces -->
+
+  <element value="SurveyDateQuestion"/>
+  <element value="SurveyMatrix"/>
+  <element value="SurveySelectQuestion"/>
+  <element value="SurveyTextQuestion"/>
+  <element value="SurveyTwoDimensional"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">survey_view</property>

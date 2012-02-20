@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="Survey 2-Dimensional Question"
+<!-- @gw4 Object name without spaces -->
+<object name="Survey2-DimensionalQuestion"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
    i18n:domain="plonesurvey">
