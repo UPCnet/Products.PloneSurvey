@@ -14,7 +14,7 @@ from schemata import SurveyDateQuestionSchema
 class SurveyDateQuestion(BaseQuestion):
     """A question for date/time within a survey"""
     schema = SurveyDateQuestionSchema
-    portal_type = 'Survey Date Question'
+    portal_type = 'SurveyDateQuestion'
     _at_rename_after_creation = True
 
     implements(IPloneSurveyQuestion)

@@ -36,7 +36,7 @@ class SurveyTwoDimensional(OrderedBaseFolder, BaseQuestion):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Survey 2-Dimensional Question',
+                'Survey2-DimensionalQuestion',
                 ]},
             full_objects=True)
         return questions

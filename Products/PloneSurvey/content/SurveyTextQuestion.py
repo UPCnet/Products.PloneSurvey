@@ -17,7 +17,7 @@ from schemata import SurveyTextQuestionSchema
 class SurveyTextQuestion(BaseQuestion):
     """A textual question within a survey"""
     schema = SurveyTextQuestionSchema
-    portal_type = 'Survey Text Question'
+    portal_type = 'SurveyTextQuestion'
     _at_rename_after_creation = True
 
     implements(IPloneSurveyQuestion, ISurveyTextQuestion)

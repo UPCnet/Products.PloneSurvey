@@ -16,7 +16,7 @@ from schemata import SurveyMatrixQuestionSchema
 class SurveyMatrixQuestion(BaseQuestion):
     """A question in a matrix within a survey"""
     schema = SurveyMatrixQuestionSchema
-    portal_type = 'Survey Matrix Question'
+    portal_type = 'SurveyMatrixQuestion'
     _at_rename_after_creation = True
 
     implements(IPloneSurveyQuestion)

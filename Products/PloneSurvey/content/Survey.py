@@ -127,11 +127,11 @@ class Survey(ATCTOrderedFolder):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Survey Date Question',
-                'Survey Matrix',
-                'Survey Select Question',
-                'Survey Text Question',
-                'Survey Two Dimensional',
+                'SurveyDateQuestion',
+                'SurveyMatrix',
+                'SurveySelectQuestion',
+                'SurveyTextQuestion',
+                'SurveyTwoDimensional',
                 ]},
             full_objects=True)
         return questions
@@ -142,11 +142,11 @@ class Survey(ATCTOrderedFolder):
         portal_catalog = getToolByName(self, 'portal_catalog')
         questions = []
         path = string.join(self.getPhysicalPath(), '/')
-        results = portal_catalog.searchResults(portal_type = ['Survey Date Question',
-                                                              'Survey Matrix Question',
-                                                              'Survey Select Question',
-                                                              'Survey Text Question',
-                                                              'Survey Two Dimensional',],
+        results = portal_catalog.searchResults(portal_type = ['SurveyDateQuestion',
+                                                              'SurveyMatrixQuestion',
+                                                              'SurveySelectQuestion',
+                                                              'SurveyTextQuestion',
+                                                              'SurveyTwoDimensional',],
                                                path = path,
                                                order = 'getObjPositionInParent')
         for result in results:
@@ -159,53 +159,53 @@ class Survey(ATCTOrderedFolder):
         questions = []
         objects = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Sub Survey',
-                'Survey Date Question',
-                'Survey Matrix',
-                'Survey Select Question',
-                'Survey Text Question',
-                'Survey Two Dimensional',
+                'SubSurvey',
+                'SurveyDateQuestion',
+                'SurveyMatrix',
+                'SurveySelectQuestion',
+                'SurveyTextQuestion',
+                'SurveyTwoDimensional',
                 ]},
             full_objects=True)
         for object in objects:
-            if object.portal_type == 'Sub Survey':
+            if object.portal_type == 'SubSurvey':
                 if include_sub_survey:
                     questions.append(object)
                 sub_survey_objects = object.getFolderContents(
                     contentFilter={'portal_type':[
-                        'Survey Matrix',
-                        'Survey Date Question',
-                        'Survey Select Question',
-                        'Survey Text Question',
-                        'Survey Two Dimensional',
+                        'SurveyMatrix',
+                        'SurveyDateQuestion',
+                        'SurveySelectQuestion',
+                        'SurveyTextQuestion',
+                        'SurveyTwoDimensional',
                         ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
                     questions.append(sub_survey_object)
-                    if sub_survey_object.portal_type == 'Survey Matrix':
+                    if sub_survey_object.portal_type == 'SurveyMatrix':
                         survey_matrix_objects = sub_survey_object.getFolderContents(
-                            contentFilter={'portal_type' : 'Survey Matrix Question'},
+                            contentFilter={'portal_type' : 'SurveyMatrixQuestion'},
                             full_objects=True)
                         for survey_matrix_object in survey_matrix_objects:
                             questions.append(survey_matrix_object)
-                    elif sub_survey_object.portal_type == 'Survey Two Dimensional':
+                    elif sub_survey_object.portal_type == 'SurveyTwoDimensional':
                         survey_2d_objects = sub_survey_object.getFolderContents(
-                            contentFilter={'portal_type' : 'Survey 2-Dimensional Question'},
+                            contentFilter={'portal_type' : 'Survey2-DimensionalQuestion'},
                             full_objects=True)
                         for survey_2d_object in survey_2d_objects:
                             questions.append(survey_2d_object)
             elif object.portal_type == 'Survey Two Dimensional':
                 questions.append(object)
                 survey_2d_objects = object.getFolderContents(
-                    contentFilter={'portal_type' : 'Survey 2-Dimensional Question'},
+                    contentFilter={'portal_type' : 'Survey2-DimensionalQuestion'},
                     full_objects=True)
                 for survey_2d_object in survey_2d_objects:
                     questions.append(survey_2d_object)
                 # XXX should check if comment is present
-            elif object.portal_type == 'Survey Matrix':
+            elif object.portal_type == 'SurveyMatrix':
                 questions.append(object)
                 survey_matrix_objects = object.getFolderContents(
-                    contentFilter={'portal_type' : 'Survey Matrix Question'},
+                    contentFilter={'portal_type' : 'SurveyMatrixQuestion'},
                     full_objects=True)
                 for survey_matrix_object in survey_matrix_objects:
                     questions.append(survey_matrix_object)
@@ -221,7 +221,7 @@ class Survey(ATCTOrderedFolder):
         objects = self.getFolderContents(
             contentFilter={'portal_type':[
                 'Sub Survey',
-                'Survey Matrix',
+                'SurveyMatrix',
                 'Survey Select Question',
                 ]},
             full_objects=True)
@@ -229,22 +229,22 @@ class Survey(ATCTOrderedFolder):
             if object.portal_type == 'Sub Survey':
                 sub_survey_objects = object.getFolderContents(
                     contentFilter={'portal_type':[
-                        'Survey Matrix',
+                        'SurveyMatrix',
                         'Survey Select Question',
                         ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
-                    if sub_survey_object.portal_type == 'Survey Matrix':
+                    if sub_survey_object.portal_type == 'SurveyMatrix':
                         survey_matrix_objects = sub_survey_object.getFolderContents(
-                            contentFilter={'portal_type' : 'Survey Matrix Question'},
+                            contentFilter={'portal_type' : 'SurveyMatrixQuestion'},
                             full_objects=True)
                         for survey_matrix_object in survey_matrix_objects:
                             questions.append(survey_matrix_object)
                     else:
                         questions.append(sub_survey_object)
-            elif object.portal_type == 'Survey Matrix':
+            elif object.portal_type == 'SurveyMatrix':
                 survey_matrix_objects = object.getFolderContents(
-                    contentFilter={'portal_type' : 'Survey Matrix Question'},
+                    contentFilter={'portal_type' : 'SurveyMatrixQuestion'},
                     full_objects=True)
                 for survey_matrix_object in survey_matrix_objects:
                     questions.append(survey_matrix_object)
@@ -255,7 +255,7 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'hasDateQuestion')
     def hasDateQuestion(self):
         """Return true if there is a date question in this part of the survey to import the js"""
-        objects = self.getFolderContents(contentFilter={'portal_type':'Survey Date Question'})
+        objects = self.getFolderContents(contentFilter={'portal_type':'SurveyDateQuestion'})
         if objects:
             return True
         return False
@@ -263,7 +263,7 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'getNextPage')
     def getNextPage(self):
         """Return the next page of the survey"""
-        pages = self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+        pages = self.getFolderContents(contentFilter={'portal_type':'SubSurvey',}, full_objects=True)
         for page in pages:
             if page.displaySubSurvey():
                 return page()
@@ -811,7 +811,7 @@ class Survey(ATCTOrderedFolder):
             row = [question.Title(), '']
             row.append(question.getNumberOfRespondents())
             sheet.writerow(row)
-            if question.portal_type in ['Survey Select Question','Survey Matrix Question']:
+            if question.portal_type in ['Survey Select Question','SurveyMatrixQuestion']:
                 options = question.getQuestionOptions()
                 number_options = question.getAggregateAnswers()
                 percentage_options = question.getPercentageAnswers()
@@ -885,7 +885,7 @@ class Survey(ATCTOrderedFolder):
         return # XXX this method does not work yet
         questions = self.getAllQuestions()
         for question in questions:
-            if question in ['Survey Matrix Question', 'Survey Select Question']:
+            if question in ['SurveyMatrix Question', 'Survey Select Question']:
                 should_be_integer = question.getLikertOptions() and True or False
                 raise str(should_be_integer)
                 answers = question.answers

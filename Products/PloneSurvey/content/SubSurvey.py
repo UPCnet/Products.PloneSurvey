@@ -15,7 +15,7 @@ class SubSurvey(ATCTOrderedFolder):
     """A sub page within a survey"""
     schema = SubSurveySchema
     _at_rename_after_creation = True
-    portal_type = 'Sub Survey'
+    portal_type = 'SubSurvey'
     security = ClassSecurityInfo()
 
     security.declarePublic('canSetDefaultPage')
@@ -61,7 +61,7 @@ class SubSurvey(ATCTOrderedFolder):
         portal_catalog = getToolByName(self, 'portal_catalog')
         questions = [('', 'None')]
         path = string.join(self.aq_parent.getPhysicalPath(), '/')
-        results = portal_catalog.searchResults(portal_type = ['Survey Select Question',],
+        results = portal_catalog.searchResults(portal_type = ['SurveySelectQuestion',],
                                                path = path)
         for result in results:
             object = result.getObject()
@@ -83,18 +83,18 @@ class SubSurvey(ATCTOrderedFolder):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Survey Date Question',
-                'Survey Matrix',
-                'Survey Select Question',
-                'Survey Text Question',
-                'Survey Two Dimensional',
+                'SurveyDateQuestion',
+                'SurveyMatrix',
+                'SurveySelectQuestion',
+                'SurveyTextQuestion',
+                'SurveyTwoDimensional',
                 ]}, full_objects=True)
         return questions
 
     security.declareProtected(permissions.View, 'hasDateQuestion')
     def hasDateQuestion(self):
         """Return true if there is a date question in this part of the survey to import the js"""
-        objects = self.getFolderContents(contentFilter={'portal_type':'Survey Date Question'})
+        objects = self.getFolderContents(contentFilter={'portal_type':'SurveyDateQuestion'})
         if objects:
             return True
         return False
@@ -110,7 +110,7 @@ class SubSurvey(ATCTOrderedFolder):
         """Return the next page of the survey"""
         previous_page = True
         parent = self.aq_parent
-        pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+        pages = parent.getFolderContents(contentFilter={'portal_type':'SubSurvey',}, full_objects=True)
         for page in pages:
             if previous_page:
                 if page.getId() == self.getId():
@@ -132,7 +132,7 @@ class SubSurvey(ATCTOrderedFolder):
         if required_question in parent.objectIds():
             question = parent[required_question]
         else:
-            pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+            pages = parent.getFolderContents(contentFilter={'portal_type':'SubSurvey',}, full_objects=True)
             for page in pages:
                 if required_question in page.objectIds():
                     question = page[required_question]

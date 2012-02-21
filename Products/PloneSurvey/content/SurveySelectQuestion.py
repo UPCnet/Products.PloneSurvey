@@ -15,7 +15,7 @@ from schemata import SurveySelectQuestionSchema
 class SurveySelectQuestion(BaseQuestion):
     """A question with select vocab within a survey"""
     schema = SurveySelectQuestionSchema
-    portal_type = 'Survey Select Question'
+    portal_type = 'SurveySelectQuestion'
     _at_rename_after_creation = True
 
     implements(IPloneSurveyQuestion)

@@ -2,16 +2,16 @@
 <object name="portal_types" meta_type="Plone Types Tool">
  <object name="Survey"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Sub Survey"
+ <object name="SubSurvey"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Survey Date Question"
+ <object name="SurveyDateQuestion"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Survey Matrix"
+ <object name="SurveyMatrix"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Survey Matrix Question"
+ <object name="SurveyMatrixQuestion"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Survey Select Question"
+ <object name="SurveySelectQuestion"
     meta_type="Factory-based Type Information with dynamic views"/>
- <object name="Survey Text Question"
+ <object name="SurveyTextQuestion"
     meta_type="Factory-based Type Information with dynamic views"/>
 </object>
