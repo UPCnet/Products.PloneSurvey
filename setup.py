@@ -1,10 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-version = open(os.path.join("Products", "PloneSurvey", "version.txt")).read().strip()
 
 setup(name='Products.PloneSurvey',
-      version=version,
+      version="1.4.6",
       description="Plone Survey is a simple product written to collect data from people - feedback on a course, simple data collection etc.",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),

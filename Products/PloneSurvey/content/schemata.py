@@ -46,6 +46,12 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         required=0,
         searchable=0,
         default_method="translateThankYouMessage",
+        default_content_type='text/html',
+        default_output_type='text/x-html-safe',
+        allowable_content_types=('text/structured',
+                                 'text/restructured',
+                                 'text/html',
+                                 'text/plain',),
         widget=TextAreaWidget(
             label=_("label_thank",
                     default="'Thank you' message text"),

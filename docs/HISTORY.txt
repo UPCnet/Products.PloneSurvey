@@ -1,6 +1,16 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.6 - Unreleased
+------------------
+
+This version is a fork from the 1.4.5
+
+  * Remove acl_users
+  * Allow html at Survey ThankYouMessage widget
+  * Updated Catalan and Spanish translations, now under locales
+
+
 1.4.5 - Unreleased
 ------------------
   * Include Products.CMFCore permissions.zcml for Plone 4.1 compatibility
