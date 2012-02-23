@@ -73,38 +73,38 @@ class Survey(ATCTOrderedFolder):
     def createLocalPas(self):
         """Create PAS acl_users else login_form does not work"""
         # need Manager role to add an acl_users object
-        remove_role = False
-        if not getSecurityManager().checkPermission(permissions.ManagePortal, self):
-            portal_membership = getToolByName(self, 'portal_membership')
-            current_user = portal_membership.getAuthenticatedMember()
-            current_userid = current_user.getId()
-            self.manage_addLocalRoles(userid=current_userid, roles=['Manager',])
-            remove_role = True
-        # Re-use code in PlonePAS install
-        addPluggableAuthService(self)
-        out = StringIO()
-        try:
-            challenge_chooser_setup(self)
-        except TypeError:
-            # BBB needed for Plone 3.3.5
-            challenge_chooser_setup(self, out)
-        registerPluginTypes(self.acl_users)
-        try:
-            setupPlugins(self)
-        except TypeError:
-            # BBB needed for Plone 3.3.5
-            setupPlugins(self, out)
+        # remove_role = False
+        # if not getSecurityManager().checkPermission(permissions.ManagePortal, self):
+        #     portal_membership = getToolByName(self, 'portal_membership')
+        #     current_user = portal_membership.getAuthenticatedMember()
+        #     current_userid = current_user.getId()
+        #     self.manage_addLocalRoles(userid=current_userid, roles=['Manager',])
+        #     remove_role = True
+        # # Re-use code in PlonePAS install
+        # addPluggableAuthService(self)
+        # out = StringIO()
+        # try:
+        #     challenge_chooser_setup(self)
+        # except TypeError:
+        #     # BBB needed for Plone 3.3.5
+        #     challenge_chooser_setup(self, out)
+        # registerPluginTypes(self.acl_users)
+        # try:
+        #     setupPlugins(self)
+        # except TypeError:
+        #     # BBB needed for Plone 3.3.5
+        #     setupPlugins(self, out)
 
-        # Recreate mutable_properties but specify fields
-        uf = self.acl_users
-        pas = uf.manage_addProduct['PluggableAuthService']
-        plone_pas = uf.manage_addProduct['PlonePAS']
-        plone_pas.manage_delObjects('mutable_properties')
-        plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
-            fullname='', key='', email_sent='')
-        activatePluginInterfaces(self, 'mutable_properties', out)
-        if remove_role:
-            self.manage_delLocalRoles(userids=[current_userid,])
+        # # Recreate mutable_properties but specify fields
+        # uf = self.acl_users
+        # pas = uf.manage_addProduct['PluggableAuthService']
+        # plone_pas = uf.manage_addProduct['PlonePAS']
+        # plone_pas.manage_delObjects('mutable_properties')
+        # plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
+        #     fullname='', key='', email_sent='')
+        # activatePluginInterfaces(self, 'mutable_properties', out)
+        # if remove_role:
+        #     self.manage_delLocalRoles(userids=[current_userid,])
 
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
