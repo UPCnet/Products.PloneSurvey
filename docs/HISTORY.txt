@@ -1,10 +1,10 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.6 - Unreleased
-------------------
+1.4.6 - (2012-03-01)
+--------------------
 
-This version is a fork from the 1.4.5
+This version is a fork from the 1.4.5 for UPCnet use
 
   * Remove acl_users
   * Allow html at Survey ThankYouMessage widget
