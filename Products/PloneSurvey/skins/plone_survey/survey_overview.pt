@@ -8,7 +8,7 @@
     <tal:main-macro metal:define-macro="main"
         tal:define="errors python:request.get('errors', {});
                     pages python:here.getFolderContents(
-                        contentFilter={'portal_type':['Sub Survey',]},
+                        contentFilter={'portal_type':['SubSurvey',]},
                             full_objects=True);">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" /> 

@@ -17,7 +17,7 @@ from schemata import SurveyMatrixSchema
 class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
     """A matrix of questions within a survey"""
     schema = SurveyMatrixSchema
-    portal_type = 'Survey Matrix'
+    portal_type = 'SurveyMatrix'
     _at_rename_after_creation = True
 
     security = ClassSecurityInfo()
@@ -85,7 +85,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Survey Matrix Question',
+                'SurveyMatrixQuestion',
                 ]},
             full_objects=True)
         return questions

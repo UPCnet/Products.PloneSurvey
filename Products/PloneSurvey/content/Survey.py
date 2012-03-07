@@ -119,7 +119,7 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'isMultipage')
     def isMultipage(self):
         """Return true if there is more than one page in the survey"""
-        if self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}):
+        if self.getFolderContents(contentFilter={'portal_type':'SubSurvey',}):
             return True
 
     security.declareProtected(permissions.View, 'getQuestions')
@@ -220,17 +220,17 @@ class Survey(ATCTOrderedFolder):
         questions = []
         objects = self.getFolderContents(
             contentFilter={'portal_type':[
-                'Sub Survey',
+                'SubSurvey',
                 'SurveyMatrix',
-                'Survey Select Question',
+                'SurveySelectQuestion',
                 ]},
             full_objects=True)
         for object in objects:
-            if object.portal_type == 'Sub Survey':
+            if object.portal_type == 'SubSurvey':
                 sub_survey_objects = object.getFolderContents(
                     contentFilter={'portal_type':[
                         'SurveyMatrix',
-                        'Survey Select Question',
+                        'SurveySelectQuestion',
                         ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
