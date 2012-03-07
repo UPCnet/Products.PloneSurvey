@@ -1,6 +1,10 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.7 - (unreleased)
+--------------------
+  * Fixed: referencies al noms de portal_types ara sense espais
+
 1.4.6 - (2012-03-01)
 --------------------
 
