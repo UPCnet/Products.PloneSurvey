@@ -7,19 +7,22 @@
       <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
+      <role name="WebMaster"/>
     </permission>
     <permission name="PloneSurvey: Reset Own Responses"
-                acquire="True">
-      <role name="Manager"/>
-      <role name="Member"/>
-    </permission>
-    <permission name="PloneSurvey: View Survey Results"
-                acquire="True">
-      <role name="Contributor"/>
+                acquire="False">
       <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
-      <role name="Reviewer"/>
+      <role name="Reader"/>
+      <role name="WebMaster"/>
     </permission>
-  </permissions>
+    <permission name="PloneSurvey: View Survey Results"
+                acquire="False">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+
 </rolemap>

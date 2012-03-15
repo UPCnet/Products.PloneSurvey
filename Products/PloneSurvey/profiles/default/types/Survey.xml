@@ -14,12 +14,12 @@
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
-  <element value="Survey Date Question"/>
-  <element value="Survey Matrix"/>
-  <element value="Survey Select Question"/>
-  <element value="Survey Text Question"/>
-  <element value="Sub Survey"/>
-  <element value="Survey Two Dimensional"/>
+  <element value="SurveyDateQuestion"/>
+  <element value="SurveyMatrix"/>
+  <element value="SurveySelectQuestion"/>
+  <element value="SurveyTextQuestion"/>
+  <element value="SubSurvey"/>
+  <element value="SurveyTwoDimensional"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">survey_view</property>
