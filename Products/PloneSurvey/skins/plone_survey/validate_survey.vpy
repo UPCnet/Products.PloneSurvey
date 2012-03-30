@@ -7,9 +7,9 @@ if form.get('form.button.save', ''):
     for q in questions:
         value = form.get(q.getId(), '')
         comments = form.get("%s_comments" % q.getId(), '')
-        if q.portal_type == 'Survey Select Question' and q.getLikertOptions():
+        if q.portal_type == 'SurveySelectQuestion' and q.getLikertOptions():
             q.addAnswer(int(value), comments)
-        elif q.portal_type not in ('Survey Matrix', 'Survey Two Dimensional'):
+        elif q.portal_type not in ('SurveyMatrix', 'SurveyTwoDimensional'):
             q.addAnswer(value, comments)
         else:
             matrix_questions = q.getQuestions()
@@ -20,9 +20,9 @@ if form.get('form.button.save', ''):
 
 for q in questions:
     value = form.get(q.getId(), '')
-    if q.portal_type == 'Survey Matrix':
+    if q.portal_type == 'SurveyMatrix':
         pass
-    elif q.getRequired() and not value and (q.portal_type not in ['Survey Two Dimensional', 'Survey Date Question']):
+    elif q.getRequired() and not value and (q.portal_type not in ['SurveyTwoDimensional', 'SurveyDateQuestion']):
         error_msg = _(msgid='please_provide_answer',
             default=u'Please provide an answer for this question',
             domain='plonesurvey')
@@ -32,17 +32,17 @@ for q in questions:
         if validation_output != 1:
             state.setError(q.getId(), validation_output)
     comments = form.get("%s_comments" % q.getId(), '')
-    if q.portal_type == 'Survey Text Question':
+    if q.portal_type == 'SurveyTextQuestion':
         q.validateAnswer(value, state)
-    elif q.portal_type == 'Survey Date Question':
+    elif q.portal_type == 'SurveyDateQuestion':
         q.validateAnswer(form, q.getId(), state)
-    elif q.portal_type == 'Survey Select Question':
+    elif q.portal_type == 'SurveySelectQuestion':
         q.validateAnswer(value, comments, state)
-    elif q.portal_type not in ('Survey Matrix', 'Survey Two Dimensional'):
+    elif q.portal_type not in ('SurveyMatrix', 'SurveyTwoDimensional'):
         q.addAnswer(value, comments)
-    elif q.portal_type in ('Survey Matrix',):
+    elif q.portal_type in ('SurveyMatrix',):
         q.validateAnswer(form, state)
-    elif q.portal_type in ('Survey Matrix', 'Survey Two Dimensional'):
+    elif q.portal_type in ('SurveyMatrix', 'SurveyTwoDimensional'):
         matrix_questions = q.getQuestions()
         qnum = ''
         for matrix_q in matrix_questions:

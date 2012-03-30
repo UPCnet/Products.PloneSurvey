@@ -16,10 +16,10 @@
 
         <title tal:content="view/name" />
         <tal:repeat repeat="question questions">
-            <tal:select condition="python:question.portal_type == 'Survey Select Question'">
+            <tal:select condition="python:question.portal_type == 'SurveySelectQuestion'">
                 <para metal:use-macro="context/survey_print_macros/macros/select" />
             </tal:select>
-            <tal:select condition="python:question.portal_type == 'Survey Text Question'">
+            <tal:select condition="python:question.portal_type == 'SurveyTextQuestion'">
                 <para metal:use-macro="context/survey_print_macros/macros/text" />
             </tal:select>
         </tal:repeat>

@@ -10,7 +10,7 @@
      tal:condition="python:survey_root and survey_root.isMultipage()">
 
     <div class="portlet"
-       tal:define="sub_surveys python: survey_root.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True);
+       tal:define="sub_surveys python: survey_root.getFolderContents(contentFilter={'portal_type':'SubSurvey',}, full_objects=True);
                    member_id survey_root/getSurveyId">
 
         <h5 i18n:translate="heading_survey_contents">Survey Contents</h5>

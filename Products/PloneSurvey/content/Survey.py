@@ -194,7 +194,7 @@ class Survey(ATCTOrderedFolder):
                             full_objects=True)
                         for survey_2d_object in survey_2d_objects:
                             questions.append(survey_2d_object)
-            elif object.portal_type == 'Survey Two Dimensional':
+            elif object.portal_type == 'SurveyTwoDimensional':
                 questions.append(object)
                 survey_2d_objects = object.getFolderContents(
                     contentFilter={'portal_type' : 'Survey2-DimensionalQuestion'},
@@ -811,7 +811,7 @@ class Survey(ATCTOrderedFolder):
             row = [question.Title(), '']
             row.append(question.getNumberOfRespondents())
             sheet.writerow(row)
-            if question.portal_type in ['Survey Select Question','SurveyMatrixQuestion']:
+            if question.portal_type in ['SurveySelectQuestion','SurveyMatrixQuestion']:
                 options = question.getQuestionOptions()
                 number_options = question.getAggregateAnswers()
                 percentage_options = question.getPercentageAnswers()
@@ -885,7 +885,7 @@ class Survey(ATCTOrderedFolder):
         return # XXX this method does not work yet
         questions = self.getAllQuestions()
         for question in questions:
-            if question in ['SurveyMatrix Question', 'Survey Select Question']:
+            if question in ['SurveyMatrixQuestion', 'SurveySelectQuestion']:
                 should_be_integer = question.getLikertOptions() and True or False
                 raise str(should_be_integer)
                 answers = question.answers
