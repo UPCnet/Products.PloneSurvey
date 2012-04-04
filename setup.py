@@ -3,7 +3,7 @@ import os
 
 
 setup(name='Products.PloneSurvey',
-      version="1.4.7",
+      version="1.4.8",
       description="Plone Survey is a simple product written to collect data from people - feedback on a course, simple data collection etc.",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
