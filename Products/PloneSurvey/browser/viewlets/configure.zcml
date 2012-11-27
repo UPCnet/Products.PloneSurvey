@@ -2,11 +2,11 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
-    <browser:page
+<!--     <browser:page
         for="Products.PloneSurvey.interfaces.ISurvey"
         class=".print_survey.PrintSurveyView"
         name="print_survey"
         template="print_survey.pt"
-        permission="zope2.View" />
+        permission="zope2.View" /> -->
 
 </configure>

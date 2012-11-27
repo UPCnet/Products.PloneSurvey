@@ -1,6 +1,11 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.9 (unreleased)
+------------------
+
+  * Get rid of z3c.rml [sneridagh]
+
 1.4.8 - (2012-04-04)
 --------------------
   * Fixed: Canvis varis, bugs.
